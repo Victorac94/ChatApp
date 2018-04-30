@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #eaeffa;
+}
+
+li {
+    list-style-type: none;
+    padding: 5px 10px;
+}
+
+hr {
+    width: 70%;
+    height: 1px;
+    background-color: #a3d0ff;
+    border: none;
+    margin: 1.2em auto;
+}
+
+.brandName {
+    font-family: 'Yellowtail', cursive !important;
+    font-size: 40px;
+}
+
+.mainDiv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.topHeader {
+    width: 100%;
+    height: 6vh;
+    min-height: 40px;
+    padding: 0.5em;
+    color: #444;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, #8cc5ff, #6bb5ff);
+}
+
+.textHeader {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: white;
+    font-size: 18px;
+}
+
+.modal {
+    width: 100%;
+    min-height: 100%;
+    color: white;
+    padding: 1.5em 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom right, #84c1ff, #419efc);
+}
+
+.modal p {
+    color: white;
+    font-size: 15px;
+    margin: 1em 3.3em;
+    text-align: center;
+}
+
+.modal p:last-child {
+    font-size: 14px;
+}
+
+.modal h2 {
+    color: white;
+}
+
+.loginModal,
+.registerModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.loginRegisterForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginRegisterForm div {
+    width: 100%;
+    min-height: 43px;
+    margin: 4px 0;
+}
+
+.loginRegisterForm input {
+    color: #888;
+}
+
+.loginRegisterForm button {
+    width: 50%;
+    min-height: 37px;
+    margin: 10px auto 0 auto !important;
+}
+
+.hideModal {
+    display: none;
+}
+
+.menu {
+    width: 40px;
+    height: 100%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeDiv {
+    height: 40px;
+}
+
+.closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    color: white;
+    font-size: 22px;
+}
+
+.logout,
+.loggedInAs {
+    color: white;
+    font-size: 26px;
+    text-align: center;
+}
+
+.logout {
+    display: inline-block;
+    margin: 0 auto !important;
+}
+
+.logout a {
+    color: inherit;
+}
+
+.chats {
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    font-size: 21px;
+    user-select: none;
+}
+
+.chats li {
+    padding-left: 1.6em;
+    display: flex;
+    align-items: center;
+}
+
+.displayMenu {
+    opacity: 0;
+    left: -100%;
+    transition: all .5s linear;
+    transition-timing-function: cubic-bezier(.41, 1.35, .55, .98);
+}
+
+.showMenu {
+    opacity: 1;
+    left: 0;
+}
+
+.msg {
+    padding: 0.7em;
+    margin: 3px;
+    color: #333;
+    border-radius: 15px;
+    max-width: 90%;
+}
+
+.myMsg {
+    background-color: #7cccff;
+    border-bottom-right-radius: 0;
+    align-self: flex-end;
+}
+
+.theirMsg {
+    background-color: #fff;
+    border-bottom-left-radius: 0;
+}
+
+.theirMsg h4 {
+    margin-bottom: 4px;
+}
+
+.chatConnected {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: #37ff00 !important;
+}
+
+.fa-globe {
+    margin-right: 6px;
+}
+
+#sendForm {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-size: 1em;
+    background-color: #d1edfa;
+    padding: 0.2em;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 1;
+}
+
+#messages {
+    width: 100%;
+    height: 95%;
+    padding: 0.3em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #eaeffa;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        background-color: #fdfdff;
+        display: flex;
+        align-items: center;
+        background: url(https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) center;
+        background-size: cover;
+    }
+    hr {
+        background-color: #a5a5a7;
+    }
+    .welcomeModal {
+        width: 320px;
+        min-height: initial;
+        position: static;
+        margin: auto;
+        border-radius: 15px;
+    }
+    .mainDiv {
+        width: 66.66%;
+    }
+    .displayMenu {
+        width: 33.33%;
+        /*border-left: 2px solid #acadaf;*/
+        opacity: 1;
+        left: auto;
+        right: 0 !important;
+        background: linear-gradient(to bottom, #fafcfc, #fcffff);
+    }
+    .loggedInAs,
+    .logout,
+    .chats,
+    .chats h2 {
+        color: #7e7e7f !important;
+    }
+    .menu {
+        display: none;
+    }
+    .closeModal {
+        display: none;
+    }
+}

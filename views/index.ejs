@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ChatApp</title>
+        <link rel="shortcut icon" href="/favicon-chatapp.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon-chatapp.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:500|Yellowtail" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style.css">
+        <script src="../socket.io/socket.io.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+        <script src="/script.js"></script>
+    </head>
+    <body>
+        <% if(currentUser) { %>
+            <div class="mainDiv">
+                <div class="topHeader">
+                    <h4 class="textHeader"><i class="fas fa-globe" style="margin-right: 0.3em"></i>Global</h4>
+                    <span class="menu">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </div>
+                <ul id="messages">
+                    <!-- If the message is mine add the class 'myMsg' -->
+                    <!-- Otherwise add the class 'theirMsg' -->
+                    <% foundMsgs.forEach((msg) => { %>
+                        <% if(msg.username === currentUser.username) { %>
+                            <li class="msg myMsg"><%=msg.message%></li>
+                        <% } else { %>
+                            <li class="msg theirMsg">
+                                <h4 style="color: <%=msg.userColor%>"><%=msg.username%></h4>
+                                <%=msg.message%>
+                            </li>
+                        <% } %>
+                    <% }); %>
+                </ul>
+                <form id="sendForm">
+                    <div class="ui fluid action input">
+                        <input type="text" id="messageInput" name="message" autofocus autocomplete="off" placeholder="Write your message here...">
+                        <button class="ui button">Send</button>
+                    </div>
+                </form>
+            </div>
+        <% } %>
+        <!-- Log in / Register modal -->
+        <% if(!currentUser) { %>
+            <div class="modal welcomeModal">
+                <h1 class="brandName">ChatApp</h1>
+                <!-- Log in -->
+                <div class="loginModal">
+                    <h2>Login</h2>
+                    <form class="loginRegisterForm" action="/login" method="POST">
+                        <div class="ui fluid input">
+                            <input type="text" name="username" placeholder="Username" autofocus>
+                        </div>
+                        <div class="ui fluid input">
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                        <button class="ui inverted button">Log in</button>
+                    </form>
+                    <p class="noAccount">Don't have an account?</p>
+                    <button id="linkToRegister" class="ui inverted olive button">Register</button>
+                </div>
+                <!-- Register -->
+                <div class="registerModal hideModal">
+                    <h2>Register</h2>
+                    <form class="loginRegisterForm" action="/register" method="POST">
+                        <div class="ui fluid input">
+                            <input type="text" name="username" placeholder="Username" autofocus>
+                        </div>
+                        <div class="ui fluid input">
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="ui fluid input">
+                            <input type="password" name="confirm" placeholder="Confirm password">
+                        </div>
+                        <button class="ui inverted button">Register</button>
+                    </form>
+                    <p class="toLogin">Already have an account?</p>
+                    <button id="linkToLogin" class="ui inverted olive button">Login</button>
+                </div>
+                <p>*You must be logged in to access the chats.</p>
+            </div>
+        <% } %>
+        <!--Menu modal -->
+        <% if(currentUser) { %>
+            <div class="modal displayMenu">
+                <div class="closeDiv">
+                    <span class="closeModal">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+                <div class="loggedInAs">
+                    <i class="fas fa-user"></i>
+                    <span><%= currentUser ? currentUser.username : ''%></span>
+                </div>
+                
+                <hr>
+                
+                <div class="logout">
+                    <span>
+                        <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                    <a href="/logout">Logout</a>
+                </div>
+                
+                <hr>
+                
+                <ul class="chats">
+                    <h2>Chats:</h2>
+                    <li><span class="chatConnected"></span><i class="fas fa-globe"></i> Global</li>
+                </ul>
+            </div>
+        <% } %>
+    </body>
+</html>
