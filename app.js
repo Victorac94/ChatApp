@@ -8,11 +8,6 @@ var express = require("express"),
     http = require("http").Server(app),
     io = require("socket.io")(http);
 
-io.on("connection", (socket) => {
-    console.log("Client connected");
-    socket.on("disconnect", () => console.log("Client disconnected"));
-});
-
 //REQUIRING ROUTES
 var indexRoutes = require("./routes/index")(io);
 
