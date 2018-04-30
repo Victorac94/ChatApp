@@ -65,7 +65,7 @@ $(document).ready(function() {
 
 
          function postChat(chat) {
-            $.post("https: //chatapp-victorac.herokuapp.com/", chat);
+            $.post("https://chatapp-victorac.herokuapp.com/", chat);
          }
 
          postChat(chatMessage);
