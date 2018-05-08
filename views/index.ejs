@@ -50,38 +50,40 @@
         <% if(!currentUser) { %>
             <div class="modal welcomeModal">
                 <h1 class="brandName">ChatApp</h1>
-                <!-- Log in -->
-                <div class="loginModal">
-                    <h2>Login</h2>
-                    <form class="loginRegisterForm" action="/login" method="POST">
-                        <div class="ui fluid input">
-                            <input type="text" name="username" placeholder="Username" autofocus>
-                        </div>
-                        <div class="ui fluid input">
-                            <input type="password" name="password" placeholder="Password">
-                        </div>
-                        <button class="ui inverted button">Log in</button>
-                    </form>
-                    <p class="noAccount">Don't have an account?</p>
-                    <button id="linkToRegister" class="ui inverted olive button">Register</button>
-                </div>
-                <!-- Register -->
-                <div class="registerModal hideModal">
-                    <h2>Register</h2>
-                    <form class="loginRegisterForm" action="/register" method="POST">
-                        <div class="ui fluid input">
-                            <input type="text" name="username" placeholder="Username" autofocus>
-                        </div>
-                        <div class="ui fluid input">
-                            <input type="password" name="password" placeholder="Password">
-                        </div>
-                        <div class="ui fluid input">
-                            <input type="password" name="confirm" placeholder="Confirm password">
-                        </div>
-                        <button class="ui inverted button">Register</button>
-                    </form>
-                    <p class="toLogin">Already have an account?</p>
-                    <button id="linkToLogin" class="ui inverted olive button">Login</button>
+                <div class="containerBox">
+                    <!-- Log in -->
+                    <div class="loginModal showLoginRegister">
+                        <h2>Login</h2>
+                        <form class="loginRegisterForm" action="/login" method="POST">
+                            <div class="ui fluid input">
+                                <input type="text" name="username" placeholder="Username" autofocus>
+                            </div>
+                            <div class="ui fluid input">
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                            <button class="ui inverted button">Log in</button>
+                        </form>
+                        <p class="noAccount">Don't have an account?</p>
+                        <button id="linkToRegister" class="ui inverted olive button">Register</button>
+                    </div>
+                    <!-- Register -->
+                    <div class="registerModal">
+                        <h2>Register</h2>
+                        <form class="loginRegisterForm" action="/register" method="POST">
+                            <div class="ui fluid input">
+                                <input type="text" name="username" placeholder="Username" autofocus>
+                            </div>
+                            <div class="ui fluid input">
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                            <div class="ui fluid input">
+                                <input type="password" name="confirm" placeholder="Confirm password">
+                            </div>
+                            <button class="ui inverted button">Register</button>
+                        </form>
+                        <p class="toLogin">Already have an account?</p>
+                        <button id="linkToLogin" class="ui inverted olive button">Login</button>
+                    </div>
                 </div>
                 <p>*You must be logged in to access the chats.</p>
             </div>

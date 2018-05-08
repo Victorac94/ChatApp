@@ -41,8 +41,8 @@ $(document).ready(function() {
 
       //Toggle between showing the login or register form
       function toggleLoginRegister() {
-         $(".loginModal").toggleClass("hideModal");
-         $(".registerModal").toggleClass("hideModal");
+         $(".loginModal").toggleClass("showLoginRegister");
+         $(".registerModal").toggleClass("showLoginRegister");
       }
 
       function displayMenu() {
